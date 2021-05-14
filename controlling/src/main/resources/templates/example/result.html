@@ -1,0 +1,14 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head> 
+    <title>This is an example</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Result</h1>
+    <p th:text="'id: ' + ${example.id}" />
+    <p th:text="'content: ' + ${example.content}" />
+    <p th:text="'name: ' + ${example.name}" />
+    <a href="/example">Submit another message</a>
+</body>
+</html>
