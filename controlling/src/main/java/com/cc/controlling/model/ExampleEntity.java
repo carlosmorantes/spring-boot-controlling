@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -18,6 +19,7 @@ public class ExampleEntity {
     @Size(min = 2, max = 30, message = "Content must have at least 2 characters and maximum 30.")
     private String content;
 
+    @NotNull(message = "Name must not be null.")
     private String name;
 
     public long getId() {
