@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head> 
+    <title>This is a bootstrap example</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- To ensure proper rendering and touch zooming for all devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- Theme style  -->
+	<link rel="stylesheet" href="css/basic.css">
+</head>
+<body>
+		<form th:action="@{/editExpense}" th:object="${expense}" method="post" class="form">
+    		<div class="form-group">
+        		<label for="name">Name</label>
+        		<input class="form-control" type="text" th:field="*{name}" id="name" placeholder="Name">
+        		<div class="alert alert-warning" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+    		</div>
+    		<div class="form-group">
+        		<label for="description">Description</label>
+        		<input class="form-control" type="text" th:field="*{description}" id="description" placeholder="description">
+        		<div class="alert alert-warning" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></div>
+    		</div>
+    		<div class="form-group">
+  				<label for="buyDate" class="col-2 col-form-label">Date</label>  				
+    			<input class="form-control" type="date" th:field="*{buyDate}" placeholder="2021-08-19" id="buyDate">
+    			<div class="alert alert-warning" th:if="${#fields.hasErrors('buyDate')}" th:errors="*{buyDate}"></div>  				
+			</div>    		
+		    <div class="form-group">
+		        <label for="buyPrice">Price</label>
+		        <input class="form-control" type="text" th:field="*{buyPrice}" id="buyPrice" placeholder="Price">
+		        <div class="alert alert-warning" th:if="${#fields.hasErrors('buyPrice')}" th:errors="*{buyPrice}"></div>
+		    </div>		    
+		    <input type="submit"  class="btn btn-success" value="Submit">
+		</form>
+</body>  
+
+</html>
