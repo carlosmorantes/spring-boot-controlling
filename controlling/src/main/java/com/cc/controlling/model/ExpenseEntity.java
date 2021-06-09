@@ -1,5 +1,6 @@
 package com.cc.controlling.model;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -12,6 +13,8 @@ import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
+
+import com.cc.controlling.validator.Currency;
 
 /**
  * @TODO: add base class with attributes to be inheritated
@@ -35,7 +38,8 @@ public class ExpenseEntity {
     @DateTimeFormat(iso = ISO.DATE)
     private Date buyDate;
 
-    private Double buyPrice;
+    @Currency
+    private BigDecimal buyPrice;
 
     public long getId() {
 	return id;
@@ -69,11 +73,11 @@ public class ExpenseEntity {
 	this.buyDate = buyDate;
     }
 
-    public Double getBuyPrice() {
+    public BigDecimal getBuyPrice() {
 	return buyPrice;
     }
 
-    public void setBuyPrice(Double buyPrice) {
+    public void setBuyPrice(BigDecimal buyPrice) {
 	this.buyPrice = buyPrice;
     }
 
