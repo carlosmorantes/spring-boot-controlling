@@ -12,29 +12,31 @@
 	<link rel="stylesheet" href="css/basic.css">
 </head>
 <body>
-		<form th:action="@{/editExpense}" th:object="${expense}" method="post" class="form">
-    		<div class="form-group">
+<div class="container">
+	<form th:action="@{/editExpense}" th:object="${expense}" method="post" class="form">
+    		<div class="form-group row">
         		<label for="name">Name</label>
         		<input class="form-control" type="text" th:field="*{name}" id="name" placeholder="Name">
-        		<div class="alert alert-warning" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+        		<div class="alert alert-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
     		</div>
-    		<div class="form-group">
+    		<div class="form-group row">
         		<label for="description">Description</label>
-        		<input class="form-control" type="text" th:field="*{description}" id="description" placeholder="description">
-        		<div class="alert alert-warning" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></div>
+        		<textarea class="form-control" th:field="*{description}" id="description" placeholder="description"></textarea>        		
     		</div>
-    		<div class="form-group">
-  				<label for="buyDate" class="col-2 col-form-label">Date</label>  				
-    			<input class="form-control" type="date" th:field="*{buyDate}" placeholder="2021-08-19" id="buyDate">
-    			<div class="alert alert-warning" th:if="${#fields.hasErrors('buyDate')}" th:errors="*{buyDate}"></div>  				
+    		<div class="form-group row">
+  				<label for="buyDate">Date</label>  				
+    			<input class="form-control" type="date" th:field="*{buyDate}" placeholder="2021-08-19" id="buyDate">    			  				
 			</div>    		
-		    <div class="form-group">
-		        <label for="buyPrice">Price</label>
-		        <input class="form-control" type="text" th:field="*{buyPrice}" id="buyPrice" placeholder="Price">
-		        <div class="alert alert-warning" th:if="${#fields.hasErrors('buyPrice')}" th:errors="*{buyPrice}"></div>
-		    </div>		    
-		    <input type="submit"  class="btn btn-success" value="Submit">
-		</form>
+		    <div class="form-group row">
+			    <label for="buyPrice">Price</label>			        			        
+			    <input class="form-control" type="text" th:field="*{buyPrice}" id="buyPrice" placeholder="Price">
+			    <div class="alert alert-danger" th:if="${#fields.hasErrors('buyPrice')}" th:errors="*{buyPrice}"></div>			    
+		    </div>
+		    <div class="form-group row">		    
+		    	<input type="submit"  class="btn btn-primary" value="Submit">
+		    </div>	
+	</form>
+</div>
 </body>  
 
 </html>
